@@ -1,18 +1,20 @@
-import OrderButton from '@/components/OrderButton';
-import { Button } from '@nextui-org/button';
+import AudioButton from '@/components/AudioButton';
 export default function Home() {
   const orderButtons = [];
 
   for (let i = 1; i <= 20; i++) {
-    orderButtons.push(<OrderButton key={i} orderNumber={i.toString()} />);
+    const audioName = `order${i}`;
+    orderButtons.push(<AudioButton key={i} audioName={audioName} />);
   }
 
   return (
     <>
-      <Button>1x</Button>
-      <Button>2x</Button>
-      <Button>3x</Button>
-      <div className='grid grid-cols-4 gap-2'>{orderButtons}</div>
+      <div className='grid grid-cols-4 gap-2 m-2'>{orderButtons}</div>
+      <div className='grid grid-cols-3 gap-2 m-2'>
+        <AudioButton audioName='Welcome' />
+        <AudioButton audioName='Thanks' />
+        <AudioButton audioName='Claygo' />
+      </div>
     </>
   );
 }

@@ -1,4 +1,5 @@
 import OrderButton from '@/components/OrderButton';
+import { Button } from '@nextui-org/button';
 export default function Home() {
   const orderButtons = [];
 
@@ -6,5 +7,12 @@ export default function Home() {
     orderButtons.push(<OrderButton key={i} orderNumber={i.toString()} />);
   }
 
-  return <div className='grid grid-cols-4 gap-2'>{orderButtons}</div>;
+  return (
+    <>
+      <Button>1x</Button>
+      <Button>2x</Button>
+      <Button>3x</Button>
+      <div className='grid grid-cols-4 gap-2'>{orderButtons}</div>
+    </>
+  );
 }

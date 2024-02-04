@@ -18,7 +18,11 @@ const AudioButton = ({ audioName }: AudioButtonProps) => {
     console.log('Button pressed');
   };
 
-  return <Button onPress={handlePress}>{audioName}</Button>;
+  return (
+    <Button color='primary' radius='full' onPress={handlePress}>
+      {audioName}
+    </Button>
+  );
 };
 
 export default AudioButton;

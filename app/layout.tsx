@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
+
+import cn from 'classnames';
+import { Inter } from 'next/font/google';
+
 import { Providers } from './providers';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -16,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className='dark'>
-      <body className={inter.className}>
+    <html lang='en' className='dark h-full'>
+      <body className={cn({ inter }, 'h-full flex bg-slate-900')}>
         <Providers>{children}</Providers>
       </body>
     </html>

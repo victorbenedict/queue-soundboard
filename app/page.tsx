@@ -27,23 +27,6 @@ export default function Home() {
             <AudioButton audioName='Claygo' />
           </div>
         </section>
-        <section className='Sample m-2'>
-          <h2>Sample</h2>
-          <div className='grid grid-cols-4 mt-2 gap-x-1 gap-y-5'>
-            <AudioButton audioName='Charlotte' />
-            <AudioButton audioName='Clyde' />
-            <AudioButton audioName='Emily' />
-            <AudioButton audioName='Freya' />
-            <AudioButton audioName='Glinda' />
-            <AudioButton audioName='Grace' />
-            <AudioButton audioName='Lily' />
-            <AudioButton audioName='Matilda' />
-            <AudioButton audioName='Nicole' />
-            <AudioButton audioName='Rachel' />
-            <AudioButton audioName='Sarah' />
-            <AudioButton audioName='Serena' />
-          </div>
-        </section>
       </main>
     </>
   );

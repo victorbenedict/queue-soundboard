@@ -11,7 +11,10 @@ export default function NumberSoundboard({
   buttonCount,
   onClick,
 }: NumberSoundboardProps) {
-  const numberButtonClass = cx(defaultButtonClass, 'w-full h-20 bg-primary');
+  const numberButtonClass = cx(
+    defaultButtonClass,
+    'w-full h-20 text-3xl font-semibold bg-green-950'
+  );
 
   const buttons = [];
   const handleClick = (index: any) => {
@@ -30,7 +33,7 @@ export default function NumberSoundboard({
   }
 
   return (
-    <div className='w-full h-auto bg-red-300 grid grid-cols-5 gap-1'>
+    <div className='w-full h-auto bg-transparent grid grid-cols-5 gap-1'>
       {buttons}
     </div>
   );

@@ -45,7 +45,7 @@ export default function Home() {
 
   return (
     <main className='w-full items-start justify-center flex'>
-      <div className='w-full h-auto bg-gray-300 flex-col inline-flex justify-start items-start gap-4 p-4 md:w-3/4 lg:w-1/2'>
+      <div className='w-full h-auto bg-white flex-col inline-flex justify-start items-start gap-4 p-4 md:w-3/4 lg:w-1/2'>
         <TitleSection />
         <AudioPlayer display={number} url={audioURL} playing={playing} />
         <NumberSoundboard

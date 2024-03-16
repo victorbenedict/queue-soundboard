@@ -1,33 +1,61 @@
-import AudioButton from '@/components/AudioButton';
-export default function Home() {
-  const orderButtons = [];
+'use client';
 
-  for (let i = 1; i <= 20; i++) {
-    orderButtons.push(<AudioButton key={i} audioName={i.toString()} />);
+import { useState } from 'react';
+import AudioPlayer from './components/AudioPlayer';
+import NotificationSoundboard from './components/NotificationSoundboard';
+import NumberSoundboard from './components/NumberSoundboard';
+import SettingsSection from './components/SettingsSection';
+import TitleSection from './components/TitleSection';
+
+export default function Home() {
+  const maxOrderNumber = 20;
+  const numberAudioURL: string[] = [];
+  for (let index = 0; index <= maxOrderNumber; index++) {
+    const url = `/sounds/${index}.mp3`;
+    numberAudioURL.push(url);
   }
+  const notificationAudioURL: { [key: string]: string } = {
+    welcome: '/sounds/welcome.mp3',
+    thanks: '/sounds/thanks.mp3',
+    claygo: '/sounds/claygo.mp3',
+  };
+
+  const [number, setNumber] = useState('None');
+  const [audioURL, setAudioURL] = useState('');
+  const [playing, setPlaying] = useState(true);
+
+  const handleNumberClick = (btnNumber: number) => {
+    console.log(btnNumber);
+    console.log('audioFiles[btnNumber]: ', numberAudioURL[btnNumber]);
+    setPlaying(false);
+    setNumber(btnNumber.toString());
+    setAudioURL(numberAudioURL[btnNumber]);
+    setPlaying(true);
+  };
+
+  const handleNotificationClick = (btnNotification: string) => {
+    console.log('handleNotificationClick');
+    console.log('handleNotificationClick', btnNotification);
+    console.log('notificationAudioURL', notificationAudioURL[btnNotification]);
+    setPlaying(false);
+    setNumber(btnNotification);
+    setAudioURL(notificationAudioURL[btnNotification]);
+    setPlaying(true);
+  };
 
   return (
-    <>
-      <main className='MainContainer flex flex-col'>
-        <section className='Title m-5 text-center'>
-          <h1>SisBrew Number Caller</h1>
-        </section>
-        <section className='Order m-2 mb-5'>
-          <h2>Order Number</h2>
-          <div className='grid grid-cols-5 mt-2 gap-x-2 gap-y-5'>
-            {orderButtons}
-          </div>
-        </section>
-        <section className='Notice m-2'>
-          <h2>Notice</h2>
-
-          <div className='grid grid-cols-3 mt-2 gap-x-1 gap-y-5'>
-            <AudioButton audioName='Welcome' />
-            <AudioButton audioName='Thanks' />
-            <AudioButton audioName='Claygo' />
-          </div>
-        </section>
-      </main>
-    </>
+    <main className='w-full items-start justify-center flex'>
+      <div className='w-full h-auto bg-gray-300 flex-col inline-flex justify-start items-start gap-4 p-4 md:w-3/4 lg:w-1/2'>
+        <TitleSection />
+        <AudioPlayer display={number} url={audioURL} playing={playing} />
+        <NumberSoundboard
+          buttonCount={maxOrderNumber}
+          onClick={(data) => handleNumberClick(data)}
+        />
+        <NotificationSoundboard
+          onClick={(data) => handleNotificationClick(data)}
+        />
+      </div>
+    </main>
   );
 }

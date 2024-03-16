@@ -11,7 +11,7 @@ export default function NotificationSoundboard({
 }: NotificationSoundboardProps) {
   const notificationButtonClass = cx(
     defaultButtonClass,
-    'w-full h-24 bg-secondary'
+    'w-full h-24 bg-green-950 font-bold'
   );
 
   const handleClick = (btnName: any) => {
@@ -19,29 +19,31 @@ export default function NotificationSoundboard({
   };
 
   return (
-    <div className='w-full h-auto bg-green-300'>
-      <div className='h-auto w-full text-center'>Notification</div>
-      <div className='w-full h-auto bg-red-300 inline-flex gap-4'>
+    <div className='w-full h-auto '>
+      {/* <div className='h-auto w-full text-center text-2xl font-bold text-red-800'>
+        NOTIFICATIONS
+      </div> */}
+      <div className='w-full h-auto inline-flex gap-4'>
         <Button
           key='btnWelcome'
           onPress={() => handleClick('welcome')}
           className={notificationButtonClass}
         >
-          Welcome
+          WELCOME
         </Button>
         <Button
           key='btnThanks'
           onPress={() => handleClick('thanks')}
           className={notificationButtonClass}
         >
-          Thanks
+          THANKS
         </Button>
         <Button
           key='btnClaygo'
           onPress={() => handleClick('claygo')}
           className={notificationButtonClass}
         >
-          Claygo
+          CLAYGO
         </Button>
       </div>
     </div>

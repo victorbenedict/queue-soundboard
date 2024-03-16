@@ -21,8 +21,8 @@ export default function AudioPlayer({
 
   return (
     <div>
-      <p>{'Display number: ' + display}</p>
-      <div className='w-full h-auto py-2.5 bg-slate-400 border border-slate-400'>
+      <p className='hidden'>{'Display number: ' + display}</p>
+      <div className='w-full h-auto py-2.5 bg-slate-400 border border-slate-400 hidden'>
         {hasWindow && (
           <ReactPlayer
             url={url}

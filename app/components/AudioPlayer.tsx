@@ -20,8 +20,10 @@ export default function AudioPlayer({
   }, []);
 
   return (
-    <div>
-      <p className='hidden'>{'Display number: ' + display}</p>
+    <div className='h-auto w-full'>
+      <p className='px-1 bg-white text-black font-semibold text-xl border-4 border-green-950 rounded'>
+        {'Playing: ' + display}
+      </p>
       <div className='w-full h-auto py-2.5 bg-slate-400 border border-slate-400 hidden'>
         {hasWindow && (
           <ReactPlayer

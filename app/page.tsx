@@ -24,7 +24,13 @@ export default function Home() {
   const [audioURL, setAudioURL] = useState('');
   const [playing, setPlaying] = useState(true);
 
-  const handleNumberClick = (btnNumber: number) => {
+  const interruption = (min: number, max: number) => {
+    const ms = Math.random() * (max - min) + min;
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  };
+
+  const handleNumberClick = async (btnNumber: number) => {
+    await interruption(300, 5000);
     console.log(btnNumber);
     console.log('audioFiles[btnNumber]: ', numberAudioURL[btnNumber]);
     setPlaying(false);
@@ -33,7 +39,9 @@ export default function Home() {
     setPlaying(true);
   };
 
-  const handleNotificationClick = (btnNotification: string) => {
+  const handleNotificationClick = async (btnNotification: string) => {
+    await interruption(300, 5000);
+
     console.log('handleNotificationClick');
     console.log('handleNotificationClick', btnNotification);
     console.log('notificationAudioURL', notificationAudioURL[btnNotification]);

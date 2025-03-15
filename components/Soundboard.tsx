@@ -7,7 +7,7 @@ import { FaRegStopCircle } from 'react-icons/fa';
 import { soundData } from '@/config/data';
 
 export default function Soundboard() {
-  const defaultText = 'Tap number to play';
+  const defaultText = 'Tap a number to play';
   const [status, setStatus] = useState(defaultText);
   const handleStopClick = () => Howler.stop();
   const handleNumberClick = (sound: Howl, label: string) => {

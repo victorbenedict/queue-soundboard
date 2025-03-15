@@ -27,7 +27,10 @@ function PlayingStatus(label: string) {
 
 export default function Soundboard() {
   const [status, setStatus] = useState(DefaultStatus);
-  const handleStopClick = () => Howler.stop();
+  const handleStopClick = () => {
+    Howler.stop();
+    setStatus(DefaultStatus);
+  };
   const handleNumberClick = (sound: Howl, label: string) => {
     Howler.stop();
     sound.play();

@@ -6,6 +6,8 @@ import { Providers } from './providers';
 
 import { fontSans } from '@/config/fonts';
 import { siteConfig } from '@/config/site';
+import { ThemeSwitch } from '@/components/theme-switch';
+import { title } from '@/components/primitives';
 
 export const metadata: Metadata = {
   title: {
@@ -41,10 +43,14 @@ export default function RootLayout({
       >
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
           <div className='relative flex flex-col h-dvh'>
-            <header className='w-full flex items-center justify-center py-3'>
-              Header
+            <header className='w-full flex items-center justify-center py-3 pt-4 px-6'>
+              <h1>
+                <span className={title({ color: 'violet' })}>QUEUE</span>{' '}
+                <span className={title()}>SOUNDBOARD</span>
+              </h1>
+              <ThemeSwitch className='absolute right-4' />
             </header>
-            <main className='container mx-auto max-w-md pt-16 px-6 flex-grow h-fit'>
+            <main className='container mx-auto max-w-md pt-4 px-6 flex-grow h-fit'>
               {children}
             </main>
             <footer className='w-full flex items-center justify-center py-3'>

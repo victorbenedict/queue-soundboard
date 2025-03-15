@@ -7,18 +7,19 @@ import { FaRegStopCircle } from 'react-icons/fa';
 import { soundData } from '@/config/data';
 
 export default function Soundboard() {
-  const [status, setStatus] = useState('default');
+  const defaultText = 'Tap number to play';
+  const [status, setStatus] = useState(defaultText);
   const handleStopClick = () => Howler.stop();
   const handleNumberClick = (sound: Howl, label: string) => {
     Howler.stop();
     sound.play();
     sound.on('play', () => setStatus(`Playing order number ${label}`));
-    sound.on('end', () => setStatus('Tap number to play'));
+    sound.on('end', () => setStatus(defaultText));
   };
 
   return (
     <section className='flex flex-col gap-4'>
-      <div className='p-4 text-lg text-center border rounded-lg text-nowrap'>
+      <div className='p-4 text-lg text-center border shadow-sm rounded-lg text-nowrap'>
         {status}
       </div>
       <Button

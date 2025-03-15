@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: 'Next.js + HeroUI',
-  description: 'Make beautiful websites regardless of your design experience.',
+  name: 'Queue Soundboard',
+  description: 'A simple app that plays audio prompts at the tap of a button.',
   links: {
-    github: 'https://github.com/heroui-inc/heroui',
+    github: 'https://github.com/victorbenedict/queue-soundboard',
   },
 };
